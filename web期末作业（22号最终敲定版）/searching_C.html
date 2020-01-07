@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="IMG/favicon.png">
+    <title>课程查询</title>
+    
+    <link type="text/css" href="CSS/reset.css" rel="stylesheet">
+    <link type="text/css" href="CSS/kute3.css" rel="stylesheet">
+    <link type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <script src="JS/minifill.js"></script>
+    <script type="text/javascript">
+        function onSearch(obj) { //js函数开始
+            setTimeout(function () { //因为是即时查询，需要用setTimeout进行延迟，让值写入到input内，再读取
+                var storeId = document.getElementById('store'); //获取table的id标识
+                var rowsLength = storeId.rows.length; //表格总共有多少行
+                var key = obj.value; //获取输入框的值
+                var searchCol = 1; //要搜索的哪一列，这里是第一列，从0开始数起
+                for (var i = 1; i < rowsLength; i++) { //按表的行数进行循环，本例第一行是标题，所以i=1，从第二行开始筛选（从0数起）
+                    var searchText = storeId.rows[i].cells[searchCol].innerHTML; //取得table行，列的值
+                    if (searchText.match(key)) { //用match函数进行筛选，如果input的值，即变量 key的值为空，返回的是ture，
+                        storeId.rows[i].style.display = ''; //显示行操作，
+                    } else {
+                        storeId.rows[i].style.display = 'none'; //隐藏行操作
+                    }
+                }
+            }, 200); //200为延时时间
+        }
+    </script>
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <div class="navbar-wrapper">
+            <div class="content-wrap">
+                <a href="index.html">
+                    <h1 class="active">爱选课 &middot;<span> 围绕大学老师与课程的评价与交流平台</span></h1>
+                    <a href="index2.html">返回上一页</a>
+                </a>
+            </div>
+        </div>
+
+        <div class="content-wrap">
+            <div class="columns welcome">
+                <input type="text" placeholder="请输入要查询的课程名称" name="key" id="key" onkeydown="onSearch(this)" value="" />
+            </div>
+        </div>
+
+        <div class="featurettes">  
+            <div class="content-wrap-table">
+                <table cellpadding='0' cellspacing='0' width='1476' id='store' style="color: black;">
+                    <col class='x22' width='135' style='width:101.25pt'>
+                    <col class='x21' width='435' style='width:326.25pt'>
+                    <col class='x21' width='293' style='width:219.75pt'>
+                    <col class='x21' width='122' style='width:91.5pt'>
+                    <col class='x21' width='491' style='width:368.25pt'>
+                    <tr height='30' style='height:22.5pt' id='r0'>
+                        <td height='30' class='x22' width='135' style='height:22.5pt;width:101.25pt;'><h3>课程号</h3></td>
+                        <td class='x21' width='435' style='width:326.25pt;'><h3>课程名称</h3></td>
+                        <td class='x21' width='293' style='width:219.75pt;'><h3>开课学院</h3></td>
+                        <td class='x21' width='122' style='width:91.5pt;'><h3>课程归属</h3></td>
+                        <td class='x21' width='491' style='width:368.25pt;'><h3>老师</h3></td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r1'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G318148</td>
+                        <td class='x21'>毒物知识与中毒急救</td>
+                        <td class='x21'>药学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>李敏</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r2'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G305015</td>
+                        <td class='x21'>个人理财</td>
+                        <td class='x21'>管理学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>吕晓青</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r3'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G313001</td>
+                        <td class='x21'>足球规则与竞赛赏析</td>
+                        <td class='x21'>体军部</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>董青</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r4'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G326009</td>
+                        <td class='x21'>团队协作与人际沟通</td>
+                        <td class='x21'>计算机科学与技术学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>陈蓉蓉</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r5'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G318170</td>
+                        <td class='x21'>人体健康与疾病</td>
+                        <td class='x21'>药学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>陈艳</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r6'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G318172</td>
+                        <td class='x21'>非处方药与家庭用药</td>
+                        <td class='x21'>药学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>朱兴一</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r7'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G318173</td>
+                        <td class='x21'>中医药文化与养生</td>
+                        <td class='x21'>药学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>杜理华</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r8'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G326004</td>
+                        <td class='x21'>计算思维</td>
+                        <td class='x21'>计算机科学与技术学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>王卫红</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r9'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G326001</td>
+                        <td class='x21'>ACM程序设计竞赛入门</td>
+                        <td class='x21'>计算机科学与技术学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>韩姗姗</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r10'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G326006</td>
+                        <td class='x21'>人际沟通与心理健康</td>
+                        <td class='x21'>计算机科学与技术学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>陈晓倩</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r11'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G305034</td>
+                        <td class='x21'>证券投资分析</td>
+                        <td class='x21'>经济学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>卢邦贵</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r12'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G305031</td>
+                        <td class='x21'>现代管理</td>
+                        <td class='x21'>管理学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>欧海若</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r13'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G318176</td>
+                        <td class='x21'>中医药与中华传统文化</td>
+                        <td class='x21'>药学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>李行诺</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r14'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G333011</td>
+                        <td class='x21'>环境保护与生态文明</td>
+                        <td class='x21'>环境学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>林春绵，陈金媛，孙建强，徐超、马云</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r15'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G333069</td>
+                        <td class='x21'>中外环境保护比较</td>
+                        <td class='x21'>环境学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>张安平</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r16'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G318179</td>
+                        <td class='x21'>药物发展与人类健康</td>
+                        <td class='x21'>药学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>李庆勇</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r17'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G305025</td>
+                        <td class='x21'>企业社会责任与伦理</td>
+                        <td class='x21'>管理学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>许伟通</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r18'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G318151</td>
+                        <td class='x21'>天然植物识别与食用安全</td>
+                        <td class='x21'>药学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>于海宁</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r19'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G305010</td>
+                        <td class='x21'>创新管理与创业实践</td>
+                        <td class='x21'>管理学院</td>
+                        <td class='x21'>创新创业</td>
+                        <td class='x21'>王黎萤、程志光，程宣梅、吴宝，</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r20'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G305011</td>
+                        <td class='x21'>创新思维与管理实践</td>
+                        <td class='x21'>管理学院</td>
+                        <td class='x21'>创新创业</td>
+                        <td class='x21'>王飞绒</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r21'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G310012</td>
+                        <td class='x21'>中国古代科技Ⅰ</td>
+                        <td class='x21'>理学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>张明</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r22'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G3320033</td>
+                        <td class='x21'>神奇的金属材料</td>
+                        <td class='x21'>化学工程学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>杜明明</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r23'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G311017</td>
+                        <td class='x21'>设计与现代生活方式</td>
+                        <td class='x21'>设计艺术学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>闫丽丽</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r24'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G305152</td>
+                        <td class='x21'>生命与休闲教育</td>
+                        <td class='x21'>经济学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>潘海颖</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r25'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G3370083</td>
+                        <td class='x21'>哲学视野下的爱情理论</td>
+                        <td class='x21'>马克思主义学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>周文</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r26'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G303009</td>
+                        <td class='x21'>人工智能思维与商业应用</td>
+                        <td class='x21'>信息工程学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>郭海锋</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r27'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G326010</td>
+                        <td class='x21'>人工智能导论</td>
+                        <td class='x21'>计算机科学与技术学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>徐新黎、王万良，姚远、黄玉娇</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r28'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G310014</td>
+                        <td class='x21'>人工智能创意实践</td>
+                        <td class='x21'>理学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>付明磊</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r29'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G305154</td>
+                        <td class='x21'>旅行摄影赏析</td>
+                        <td class='x21'>管理学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>唐宇</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r30'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G3060043</td>
+                        <td class='x21'>化妆品科学与鉴赏</td>
+                        <td class='x21'>生物工程学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>陈小龙</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r31'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G3060053</td>
+                        <td class='x21'>纳米生物学</td>
+                        <td class='x21'>生物工程学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>燕云峰</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r32'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G311020</td>
+                        <td class='x21'>电影动漫与经典音乐赏析</td>
+                        <td class='x21'>设计艺术学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>章峥</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r33'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G3070043</td>
+                        <td class='x21'>火灾安全事故预防</td>
+                        <td class='x21'>教育科学与技术学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>李振明、汪磊</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r34'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G311004</td>
+                        <td class='x21'>国际标准舞（华尔兹）</td>
+                        <td class='x21'>设计艺术学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>徐轶诚</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r35'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G317031</td>
+                        <td class='x21'>哲学与人生</td>
+                        <td class='x21'>法学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>鲁丽丽</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r36'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308169</td>
+                        <td class='x21'>现当代情诗的古典底蕴</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>陆红颖</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r37'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308154</td>
+                        <td class='x21'>文艺心理探秘</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>郑玉明</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r38'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308189</td>
+                        <td class='x21'>言语交际与修辞</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>沈小仙</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r39'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G311002</td>
+                        <td class='x21'>大学生交谊舞</td>
+                        <td class='x21'>设计艺术学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>吴群</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r40'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G311011</td>
+                        <td class='x21'>影视与动漫音乐赏析</td>
+                        <td class='x21'>设计艺术学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>林惠芬</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r41'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G317023</td>
+                        <td class='x21'>谈判艺术与技巧</td>
+                        <td class='x21'>法学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>黄伟锋</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r42'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308040</td>
+                        <td class='x21'>都市小说名作选讲</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>左怀建</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r43'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G3320104</td>
+                        <td class='x21'>世界旅游文化与美食赏析</td>
+                        <td class='x21'>海洋学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>吕飞</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r44'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308192</td>
+                        <td class='x21'>音乐剧目赏析</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>陈央</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r45'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308101</td>
+                        <td class='x21'>美学与人生</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>郑玉明</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r46'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308216</td>
+                        <td class='x21'>中国古代文化专题</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>马晓坤，潘德宝</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r47'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G337003</td>
+                        <td class='x21'>口才与人际交往</td>
+                        <td class='x21'>马克思主义学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>杨克勤</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r48'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308204</td>
+                        <td class='x21'>影视与现代文化</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>包燕</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r49'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308126</td>
+                        <td class='x21'>世界电影经典与艺术</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>黄亚清</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r50'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G311015</td>
+                        <td class='x21'>设计与文明</td>
+                        <td class='x21'>设计艺术学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>闫丽丽</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r51'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308241</td>
+                        <td class='x21'>中外文学经典导读</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>刘鹏</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r52'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308087</td>
+                        <td class='x21'>考古探秘</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>方坚铭</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r53'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G304008</td>
+                        <td class='x21'>音乐基础知识与赏析</td>
+                        <td class='x21'>建筑工程学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>丁倩倩</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r54'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308022</td>
+                        <td class='x21'>传统文化的审美之旅</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>陆红颖</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r55'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308090</td>
+                        <td class='x21'>流行歌曲与古典诗词</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>李剑亮</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r56'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308273</td>
+                        <td class='x21'>中国文学与电影</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>张勐</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r57'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G311019</td>
+                        <td class='x21'>影像媒体艺术</td>
+                        <td class='x21'>设计艺术学院</td>
+                        <td class='x21'>人文情怀</td>
+                        <td class='x21'>台文文</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r58'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G317018</td>
+                        <td class='x21'>每周说法</td>
+                        <td class='x21'>法学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>宗宁</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r59'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G3170013</td>
+                        <td class='x21'>影视作品中的法律与法理</td>
+                        <td class='x21'>法学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>刘松珍</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r60'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G317008</td>
+                        <td class='x21'>法律思维与生活智慧</td>
+                        <td class='x21'>法学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>王朝霞、钱江、刘天姿、汪勇，吴海燕</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r61'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G405020</td>
+                        <td class='x21'>避税与纳税筹划案例分析Ⅰ</td>
+                        <td class='x21'>管理学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>王迎春</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r62'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G304007</td>
+                        <td class='x21'>信息素养提高与学术规范</td>
+                        <td class='x21'>建筑工程学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>池晓波</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r63'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G307014</td>
+                        <td class='x21'>管理心理学</td>
+                        <td class='x21'>教育科学与技术学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>李海宗</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r64'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G307009</td>
+                        <td class='x21'>案例中的教育心理智慧</td>
+                        <td class='x21'>教育科学与技术学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>高智红，皮江红</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r65'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G337006</td>
+                        <td class='x21'>马克思主义宗教观</td>
+                        <td class='x21'>马克思主义学院</td>
+                        <td class='x21'>社会责任</td>
+                        <td class='x21'>吕刚</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r66'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G331008</td>
+                        <td class='x21'>新能源技术及其应用</td>
+                        <td class='x21'>材料科学与工程学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>张林</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r67'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G331002</td>
+                        <td class='x21'>材料科技与人类文明</td>
+                        <td class='x21'>材料科学与工程学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>胡晓君</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r68'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G332001</td>
+                        <td class='x21'>海洋探索与发现</td>
+                        <td class='x21'>海洋学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>曾淦宁</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r69'>
+                        <td height='30' class='x22' style='height:22.5pt;'>13505</td>
+                        <td class='x21'>海洋科技与未来</td>
+                        <td class='x21'>海洋学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>晏荣军</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r70'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G301021</td>
+                        <td class='x21'>无机材料与人类文明进步</td>
+                        <td class='x21'>化学工程学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>李国华、高静、宁文生、施梅勤</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r71'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G301018</td>
+                        <td class='x21'>有机光电功能材料</td>
+                        <td class='x21'>化学工程学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>张诚、欧阳密</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r72'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G301010</td>
+                        <td class='x21'>清洁能源技术与应用：机遇与挑战</td>
+                        <td class='x21'>化学工程学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>毛信表</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r73'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G301007</td>
+                        <td class='x21'>化学与社会</td>
+                        <td class='x21'>化学工程学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>王力耕</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r74'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G301024</td>
+                        <td class='x21'>纳米科技：神话还是谎言Ⅰ</td>
+                        <td class='x21'>化学工程学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>高静、李国华</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r75'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G333092</td>
+                        <td class='x21'>创新思维训练</td>
+                        <td class='x21'>环境学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>李军</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r76'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G302002</td>
+                        <td class='x21'>走进奇妙的微纳米世界</td>
+                        <td class='x21'>机械工程学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>董健</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r77'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G302001</td>
+                        <td class='x21'>3D打印-从想象到现实</td>
+                        <td class='x21'>机械工程学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>姚建华、杨高林</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r78'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G307003</td>
+                        <td class='x21'>大学生安全文化</td>
+                        <td class='x21'>教育科学与技术学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>李振明</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r79'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G307019</td>
+                        <td class='x21'>益智游戏与科学思维</td>
+                        <td class='x21'>教育科学与技术学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>艾宁、王祁宁、黄荣斌</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r80'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G310001</td>
+                        <td class='x21'>天文学概论</td>
+                        <td class='x21'>理学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>杨新娟、武强</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r81'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G310004</td>
+                        <td class='x21'>科学技术史</td>
+                        <td class='x21'>理学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>米丽琴</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r82'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G310008</td>
+                        <td class='x21'>爱因斯坦与相对论</td>
+                        <td class='x21'>理学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>米丽琴</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r83'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G303007</td>
+                        <td class='x21'>机器人：从科幻到现实</td>
+                        <td class='x21'>信息工程学院</td>
+                        <td class='x21'>科学素养</td>
+                        <td class='x21'>杨东勇</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r84'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G317014</td>
+                        <td class='x21'>韩国社会文化与习俗</td>
+                        <td class='x21'>法学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>李正日</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r85'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G317021</td>
+                        <td class='x21'>日本学校教育与社会文化习俗</td>
+                        <td class='x21'>法学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>李正日</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r86'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G317016</td>
+                        <td class='x21'>金融危机启示录</td>
+                        <td class='x21'>法学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>刘天姿</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r87'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G317006</td>
+                        <td class='x21'>当代美国社会与文化</td>
+                        <td class='x21'>法学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>王海表</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r88'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G317024</td>
+                        <td class='x21'>外交风云</td>
+                        <td class='x21'>法学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>许昌</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r89'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G317003</td>
+                        <td class='x21'>大国崛起与中国梦</td>
+                        <td class='x21'>法学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>黄伟锋</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r90'>
+                        <td height='30' class='x22' style='height:22.5pt;'>13140</td>
+                        <td class='x21'>跨文化交流与国际教育</td>
+                        <td class='x21'>国际学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>郑华均</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r91'>
+                        <td height='30' class='x22' style='height:22.5pt;'>13506</td>
+                        <td class='x21'>世界食品与文化欣赏</td>
+                        <td class='x21'>海洋学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>范铮</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r92'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G337002</td>
+                        <td class='x21'>当代世界经济与政治</td>
+                        <td class='x21'>马克思主义学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>王骁炜</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r93'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G308159</td>
+                        <td class='x21'>西方文学与文化</td>
+                        <td class='x21'>人文学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>颜炼军</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r94'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G309004</td>
+                        <td class='x21'>日语初级（上）</td>
+                        <td class='x21'>外国语学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>蒋家义</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r95'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G309001</td>
+                        <td class='x21'>基础德语</td>
+                        <td class='x21'>外国语学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>乐波娜</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r96'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G317020</td>
+                        <td class='x21'>欧洲城市文化鉴赏</td>
+                        <td class='x21'>法学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>张佳婧</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r97'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G309002</td>
+                        <td class='x21'>基础俄语</td>
+                        <td class='x21'>外国语学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>张美英</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r98'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G309008</td>
+                        <td class='x21'>西方文明通论</td>
+                        <td class='x21'>外国语学院</td>
+                        <td class='x21'>国际视野</td>
+                        <td class='x21'>郑云</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r99'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G341001</td>
+                        <td class='x21'>创业基础与实务</td>
+                        <td class='x21'>创业学院</td>
+                        <td class='x21'>创新创业</td>
+                        <td class='x21'></td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r100'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G341002</td>
+                        <td class='x21'>创新工程实践</td>
+                        <td class='x21'>创业学院</td>
+                        <td class='x21'>创新创业</td>
+                        <td class='x21'>李清水</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r101'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G317004</td>
+                        <td class='x21'>大学生创新创业法律指导</td>
+                        <td class='x21'>法学院</td>
+                        <td class='x21'>创新创业</td>
+                        <td class='x21'></td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r102'>
+                        <td height='30' class='x22' style='height:22.5pt;'>405024</td>
+                        <td class='x21'>互联网思维Ⅰ</td>
+                        <td class='x21'>经济学院</td>
+                        <td class='x21'>创新创业</td>
+                        <td class='x21'>张祎</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r103'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G311001</td>
+                        <td class='x21'>创意与设计思维</td>
+                        <td class='x21'>设计艺术学院</td>
+                        <td class='x21'>创新创业</td>
+                        <td class='x21'>台文文</td>
+                    </tr>
+                    <tr height='30' style='height:22.5pt' id='r104'>
+                        <td height='30' class='x22' style='height:22.5pt;'>G318183</td>
+                        <td class='x21'>创新性思维训练</td>
+                        <td class='x21'>药学院</td>
+                        <td class='x21'>创新创业</td>
+                        <td class='x21'>熊绪琼</td>
+                    </tr>
+                    <![if supportMisalignedColumns]>
+                    <tr height='0' style='display:none'>
+                        <td width='135' style='width:101.25pt'></td>
+                        <td width='435' style='width:326.25pt'></td>
+                        <td width='293' style='width:219.75pt'></td>
+                        <td width='122' style='width:91.5pt'></td>
+                        <td width='491' style='width:368.25pt'></td>
+                    </tr>
+                    <![endif]>
+                </table>
+            </div>
+                
+        </div>
+
+        <div id="share" class="nav" style="width: 80px;height: 60px;">
+            <a href="web.html">
+                <img src="IMG/头像.jpg" alt="空白头像" style="height: 28px; width: 28px; border-radius: 14px;">
+                <h5 style="position: relative; left: 33px;top: -53px;">退出</h5>
+            </a>
+        </div>
+
+    </div
+    >
+
+    <footer>
+        <div class="content-wrap">
+            <p class="pull-right"><a id="toTop" href="#">Back to top</a></p>
+            <p>本网站部分库引用自Kute.js</p>
+        </div>
+    </footer>
+
+    <script src="JS/kute.min.js"></script>
+    <script src="JS/kute-css.min.js"></script>
+    <script src="JS/kute-text.min.js"></script>
+    <script src="JS/scripts.js"></script>
+    <script src="JS/home.js"></script>
+</body>
+
+</html>

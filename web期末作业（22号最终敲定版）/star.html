@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="IMG/favicon.png">
+
+    <title>打分</title>
+    <link type="text/css" href="CSS/reset.css" rel="stylesheet">
+    <link type="text/css" href="CSS/kute2.css" rel="stylesheet">
+    <link type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <link type="text/css" href="css/style.css" rel="stylesheet" />
+    <script src="JS/minifill.js"></script>
+
+</head>
+
+<body>
+    <div class="site-wrapper">
+        <div class="navbar-wrapper">
+            <div class="content-wrap">
+                <a href="index.html">
+                    <h1 class="active">爱选课 &middot;<span> 围绕大学老师与课程的评价与交流平台</span></h1>
+                    <a href="Scoring_showing.html">返回上一页</a>
+                </a>
+            </div>
+        </div>
+
+        <div class="featurettes">
+            <div class="order-evaluation clearfix">
+                <p>请客观给出你的评价哦！您的评价其他选这门课的同学们非常重要！</p>
+                <div class="block">
+                    <ul>
+                        <li data-default-index="0">
+                            <span>
+                                <img src="img/x1.png">
+                                <img src="img/x1.png">
+                                <img src="img/x1.png">
+                                <img src="img/x1.png">
+                                <img src="img/x1.png">
+                            </span>
+                            <em class="level"></em>
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-evaluation-text">
+                    这门课给您留下了什么印象呢？
+                </div>
+                <div class="order-evaluation-checkbox">
+                    <ul class="clearfix">
+                        <li class="order-evaluation-check" data-impression="1">老师讲课十分生动<i class="iconfont icon-checked"></i></li>
+                        <li class="order-evaluation-check" data-impression="2">课堂活跃度高<i class="iconfont icon-checked"></i></li>
+                        <li class="order-evaluation-check" data-impression="3">能够学到很多知识<i class="iconfont icon-checked"></i></li>
+                        <li class="order-evaluation-check" data-impression="4">老师教的很一般<i class="iconfont icon-checked"></i></li>
+                        <li class="order-evaluation-check" data-impression="5">老师教学能力还待提高<i class="iconfont icon-checked"></i></li>
+                        <li class="order-evaluation-check" data-impression="6">这门课不值得大家选择<i class="iconfont icon-checked"></i></li>
+                    </ul>
+                </div>
+                <div class="order-evaluation-textarea">
+                    <textarea name="content" id="TextArea1" onKeyUp="words_deal();" ></textarea>
+                    <span>还可以输入<em id="textCount">140</em>个字</span>
+                </div>
+                <a href="javascript:;" id="order_evaluation">评价完成</a>
+            </div>
+            
+            <div id="order_evaluate_modal" class="dmlei_tishi_info"></div>
+        </div>
+
+        <div id="share" class="nav" style="width: 80px;height: 60px;">
+            <a href="web.html">
+                <img src="IMG/头像.jpg" alt="空白头像" style="height: 28px; width: 28px; border-radius: 14px;">
+                <h5 style="position: relative; left: 33px;top: -53px;">退出</h5>
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="content-wrap">
+            <p class="pull-right"><a id="toTop" href="#">Back to top</a></p>
+            <p>本网站部分库引用自Kute.js</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+    function byIndexLeve(index){
+        var str ="";
+        switch (index)
+        {
+            case 0:
+                str="一星差评，大家千万别来选这门课！";
+                break;
+            case 1:
+                str="教的较差，大家最好不要选这门课";
+                break;
+            case 2:
+                str="比较一般，大家酌情考虑";
+                break;
+            case 3:
+                str="教的较好，大家可以放心选这个课";
+                break;
+            case 4:
+                str="五星好评，错过后悔一辈子！";
+                break;
+        }
+        return str;
+    }
+    var stars = [
+        ['x2.png', 'x1.png', 'x1.png', 'x1.png', 'x1.png'],
+        ['x2.png', 'x2.png', 'x1.png', 'x1.png', 'x1.png'],
+        ['x2.png', 'x2.png', 'x2.png', 'x1.png', 'x1.png'],
+        ['x2.png', 'x2.png', 'x2.png', 'x2.png', 'x1.png'],
+        ['x2.png', 'x2.png', 'x2.png', 'x2.png', 'x2.png'],
+    ];
+    $(".block li").find("img").hover(function(e) {
+        var obj = $(this);
+        var index = obj.index();
+        if(index < (parseInt($(".block li").attr("data-default-index")) -1)){
+            return ;
+        }
+        var li = obj.closest("li");
+        var star_area_index = li.index();
+        for (var i = 0; i < 5; i++) {
+            li.find("img").eq(i).attr("src", "img/" + stars[index][i]);
+        }
+        $(".level").html(byIndexLeve(index));
+    }, function() {
+    })
+
+    $(".block li").hover(function(e) {
+    }, function() {
+        var index = $(this).attr("data-default-index");
+        index = parseInt(index);
+        console.log("index",index);
+        $(".level").html(byIndexLeve(index-1));
+        console.log(byIndexLeve(index-1));
+        $(".order-evaluation ul li:eq(0)").find("img").attr("src","img/x1.png");
+        for (var i=0;i<index;i++){
+
+            $(".order-evaluation ul li:eq(0)").find("img").eq(i).attr("src","img/x2.png");
+        }
+    })
+    $(".block li").find("img").click(function() {
+        var obj = $(this);
+        var li = obj.closest("li");
+        var star_area_index = li.index();
+        var index1 = obj.index();
+        li.attr("data-default-index", (parseInt(index1)+1));
+        var index = $(".block li").attr("data-default-index");
+        index = parseInt(index);
+        console.log("index",index);
+        $(".level").html(byIndexLeve(index-1));
+        console.log(byIndexLeve(index-1));
+        $(".order-evaluation ul li:eq(0)").find("img").attr("src","img/x1.png");
+        for (var i=0;i<index;i++){
+            $(".order-evaluation ul li:eq(0)").find("img").eq(i).attr("src","img/x2.png");
+        }
+
+    });
+    $(".order-evaluation-check").click(function(){
+        if($(this).hasClass('checked')){
+            $(this).removeClass('checked');
+        }else{
+            $(this).addClass('checked');
+        }
+    });
+    function words_deal()
+    {
+        var curLength=$("#TextArea1").val().length;
+        if(curLength>140)
+        {
+            var num=$("#TextArea1").val().substr(0,140);
+            $("#TextArea1").val(num);
+            alert("您已超出字数限制！" );
+        }
+        else
+        {
+            $("#textCount").text(140-$("#TextArea1").val().length);
+        }
+    }
+    $("#order_evaluation").click(function(){
+        $("#order_evaluate_modal").html("感谢您的评价！").show().delay(3000).hide(500);
+    })
+</script>
+    <script src="JS/kute.min.js"></script>
+    <script src="JS/kute-css.min.js"></script>
+    <script src="JS/kute-text.min.js"></script>
+    <script src="JS/scripts.js"></script>
+    <script src="JS/home.js"></script>
+</body>
+
+</html>

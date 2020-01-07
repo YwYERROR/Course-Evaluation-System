@@ -1,0 +1,347 @@
+
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 2;
+	min-width: 1500px;
+	color: #ccc;
+	background-color: #2e2e2e;
+	position: relative；
+}
+
+
+body[data-tweening="scroll"],
+body[data-tweening="scroll"] * {
+	pointer-events: none !important;
+}
+
+.featurettes.dark table{
+	border-collapse:collapse;
+	table-layout:fixed;
+	width:1107pt;
+	font-size: larger;
+	color: #000;
+	position: fixed;
+	left: 20px;
+
+}
+
+footer {
+	clear: both;
+	overflow: hidden;
+	margin-top: 60px;
+}
+
+footer .content-wrap {
+	padding-top: 5px;
+	border-top: 1px solid rgb(120, 120, 120);
+	border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+footer p {
+	margin: 0 0 10px
+}
+
+/* site-wrapper */
+.site-wrapper {
+	position: relative;
+	overflow: hidden
+}
+
+/* navbar */
+.navbar-wrapper {
+	position: relative;
+	clear: both
+}
+
+.navbar-wrapper .content-wrap {
+	height: 64px;
+	padding: 20px 0 0;
+}
+
+.navbar-wrapper h1 {
+	color: #fff;
+	font-size: 32px;
+	line-height: 25px;
+	letter-spacing: -2px;
+	float: left;
+	padding-right: 25px;
+	margin-right: 25px;
+	border-right: 1px solid rgb(120, 120, 120);
+	border-right: 1px solid rgba(255, 255, 255, 0.2)
+}
+
+.navbar-wrapper h1 span {
+	font-size: 24px;
+	color: #555;
+	letter-spacing: -1px;
+}
+
+.navbar-wrapper h1.active span {
+	color: #ffd626
+}
+
+.navbar-wrapper .nav {
+	float: left;
+	padding: 0 0 18px;
+	margin: 0;
+	border-bottom: 1px solid #555
+}
+
+.nav>li {
+	float: left;
+	display: block;
+	line-height: 25px;
+	list-style: none
+}
+
+.nav>li:not(:last-child) {
+	margin-right: 12px
+}
+
+.ie8 .nav li {
+	margin-right: 12px
+}
+
+.ie8 .nav li li {
+	margin-right: 0
+}
+
+.nav li.active>a {
+	color: #ffd626
+}
+
+.nav li a {
+	color: #ccc
+}
+
+.nav li a:hover,
+.nav li a:focus {
+	text-decoration: none
+}
+
+.ie8 .btn.top-right {
+	top: 55px
+}
+
+/* featurettes */
+.featurettes {
+	background: white;
+	padding: 60px 0;
+	width: 100%;
+	clear: both;
+	margin: 60px 0;
+	float: left;
+	color: #777;
+}
+.featurettes h1,
+.featurettes h2,
+.featurettes h3,
+.featurettes b,
+.featurettes strong {
+	color: #222
+}
+
+.featurettes a {
+	color: #2196F3
+}
+
+.content-wrap .featurettes {
+	margin: 0 0 20px;
+	padding: 20px 0 0 20px;
+	display: inline-block;
+	position: relative
+}
+
+
+
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.pull-right {
+	float: right !important;
+}
+
+.pull-left {
+	float: left !important;
+}
+
+.hide {
+	display: none !important;
+}
+
+.show {
+	display: block !important;
+}
+
+.invisible {
+	visibility: hidden;
+}
+
+.text-strong {
+	font-weight: bold
+}
+
+.content-wrap {
+	position: relative;
+	width: 980px;
+	padding-top: 50px;
+	margin: 0 auto;
+	max-width: 100%;
+	clear: both;
+}
+
+.content-wrap .columns.welcome input{
+	margin-left: 33%;
+	height: 33px;
+	width: 300px;
+	font-size: 20px;
+	color: #000;
+}
+
+ul,
+ol {
+	margin: 0 0 20px
+}
+
+h1,
+h2,
+h3,
+h4,
+strong {
+	color: #fff
+}
+
+h1 {
+	font-size: 54px;
+	letter-spacing: -3px;
+	line-height: 0.92;
+	font-weight: normal;
+}
+
+h2 {
+	font-size: 46px;
+	letter-spacing: -2px;
+	line-height: 1.08;
+	font-weight: normal;
+	margin: 1.08em 0 0.27em;
+	width: 100%;
+}
+
+h3 {
+	font-size: 24px;
+	letter-spacing: 0px;
+	line-height: 0.96;
+	font-weight: normal;
+}
+
+h4 {
+	font-size: 16px;
+	letter-spacing: 0px;
+	line-height: 1.14;
+	font-weight: normal;
+}
+
+h1,
+h3,
+[class*="col"]>h4 {
+	margin: 0 0 20px
+}
+
+
+img {
+	max-width: 100%
+}
+
+img.circle {
+	border-radius: 50%
+}
+
+
+a {
+	color: #ffd626;
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	color: #4CAF50;
+	text-decoration: underline;
+}
+
+a:focus {
+	outline: none;
+}
+
+hr {
+	border: 1px solid #444;
+	margin: 10px 0;
+}
+
+/* share */
+#share {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	padding: 10px 10px;
+	background: #2e2e2e;
+}
+
+#share .icon {
+	font-size: 24px;
+	line-height: 1
+}
+
+/* buttons */
+.btns .btn {
+	opacity: 0;
+	float: left;
+	line-height: 1;
+	margin: 0 3px 3px 0
+}
+
+.ie8 .btns .btn {
+	filter: alpha(opacity=0);
+}
+
+.btn {
+	padding: 12px 15px;
+	color: #fff;
+	border: 0;
+	background-color: #999;
+	line-height: 44px;
+}
+
+.btn-green,
+.bg-green {
+	background-color: #4CAF50;
+	color: #fff;
+	fill: #4CAF50
+}
+
+.btn-green:hover,
+.btn-green:active,
+.btn-green:focus {
+	background-color: #9C27B0
+}
+
+.content-wrap-table {
+	position: relative;
+	width: 980px;
+	margin: 0 120px;
+	max-width: 100%;
+	clear: both;
+}

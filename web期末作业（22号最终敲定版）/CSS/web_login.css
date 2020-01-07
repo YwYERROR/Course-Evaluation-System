@@ -1,0 +1,53 @@
+body{
+    min-width: 1500px;
+}
+#login{
+    position: relative;
+    left: 40%;
+    top: 40%;
+    height: auto;
+    width: 210px;
+    padding: 50px;
+    padding-top: 10px;
+    border: 1px solid grey;
+}
+#btn{
+    font-size: 15px;
+    float: right;
+    background-color: #4CAF50;
+	color: #fff;
+    fill: #4CAF50;
+    padding: 10px 15px;
+	border: 0;
+	line-height: 15px;
+}
+#btn-lime:hover,
+#btn-lime:active,
+#btn-lime:focus {
+	background-color: #9C27B0
+}
+
+
+header{
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 64px;
+    text-align: center;
+}
+#main{
+    height: 300px;
+    min-width: 1000px;
+}
+
+.featurettes2 {
+    position: relative;
+    left: 10%;
+	background: #2e2e2e;
+	padding: 60px 0;
+	width: 100%;
+	clear: both;
+	margin: 40px 80px;
+	float: left;
+	color: #777;
+}
+
